@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c313aa6c-5729-4b5d-8b31-ab9fd0f4f581" name="parasol" url="http://192.168.0.45">
+        <fileTransfer host="192.168.0.45" port="22" rootFolder="/home/parasol" accessType="SFTP" password="dfc0dfd9df98df92df9bdf9adf92df93" username="jofrey">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

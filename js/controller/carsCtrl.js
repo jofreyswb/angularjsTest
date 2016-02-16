@@ -2,6 +2,6 @@
     var carsAppControllers =  angular.module('carsAppControllers',[]);
 
     carsAppControllers.controller('carsCtrl', ['$scope', 'Car',
-        function ($scope, $http){
+        function ($scope, Car){
 
         }]);
