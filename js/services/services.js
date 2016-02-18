@@ -2,5 +2,5 @@
 
     carServices.factory('Car',['$resource',
             function($resource){
-                return $resource('/api/cars/:id');
+                return $resource('/api/carbrands/:id');
     }]);

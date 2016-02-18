@@ -2,13 +2,15 @@
     var carsAppControllers =  angular.module('carsAppControllers',[]);
 
     carsAppControllers.controller('carsCtrl', ['$scope','$routeParams', 'Car',
-        function ($scope, Car){
-             $scope.cars = Car.query();
+        function ($scope, $routeParams, Car){
+            // $scope.carbrends = Car.query().promise();
+            //console.log(carbrends);
              var car = Car.query(function(){
+                 $scope.carbrends = car;
                  console.log(car);
              });
-             var entry = Car.get({ id: $scope.id }, function() {
-                 console.log(entry);
-             })
-            console.log('hello');
+             //var entry = Car.get({ id: $scope.id }, function() {
+             //    console.log(entry);
+             //})
+
         }]);
