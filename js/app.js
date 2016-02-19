@@ -11,10 +11,10 @@ carsApp.config(['$routeProvider',
                 templateUrl: 'templates/cars.html',
                 controller: 'carsCtrl'
             }).
-            when('/creatnew',{
+            when('/cars/:carbrandId',{
                 templateUrl: 'templates/newcarbrand.html',
                 controller: 'carsCtrl'
-            })
+            }).
             otherwise({
             redirectTo: '/cars'
         });

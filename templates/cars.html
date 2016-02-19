@@ -1,20 +1,17 @@
 <div class="newCar">
 <h2>Carbrands</h2>
-    <a href="#/pxem" >Create new carbrand</a>
+    <a href="#/cars/new" >Create new carbrand</a><br>
+    <label>Sort</label>
+    <input type="text" ng-model="sort">
 <ul>
-    <li ng-repeat="carbrand in carbrends">
-        <p>ID:{{carbrand.id}} </p><p>Brand: {{carbrand.brand}}</p>
-
-
+    <li ng-repeat="carbrand in carbrends | filter:sotr">
+        <span>|| ID:{{carbrand.id}} || </span><span>Brand: {{carbrand.brand }} ---</span>
+        <span><a href="#/cars/{{carbrand.id}}" >Edit</a></span>
+        <span><a href="#/cars" ng-click="Delete(carbrand.id)" >Delete</a></span>
     </li>
 </ul>
 
 
-    <form  name="editCarbrand" >
 
-        <label>Carbrand</label>
-        <input type="text" >
-        <input type="submit" value="Save">
-    </form>
 
 </div>

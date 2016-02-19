@@ -2,5 +2,8 @@
 
     carServices.factory('Car',['$resource',
             function($resource){
-                return $resource('/api/carbrands/:id');
+                return $resource('/api/carbrands/:id', { id: '@_id' }, {
+                    update: {
+                        method: 'PUT' // this method issues a PUT request
+                    }});
     }]);
