@@ -1,20 +1,33 @@
+var carsAppControllers = angular.module('carsAppControllers', []);
 
-    var carsAppControllers =  angular.module('carsAppControllers',[]);
+carsAppControllers.controller('carsCtrl', ['$scope', '$routeParams', 'Car',
+    function ($scope, $routeParams, Car,$location) {
 
-    carsAppControllers.controller('carsCtrl', ['$scope','$routeParams', 'Car',
-        function ($scope, $routeParams, Car){
+        var car = Car.query(function () {
+            $scope.carbrends = car;
 
-             var car = Car.query(function(){
-                 $scope.carbrends = car;
+        });
 
-             });
+        $scope.Save = function () {
+            console.log('save');
+            if ($routeParams.carbrandId == 'new') {
+                //Car.save($scope.carbrand).$promise.then(function () {
+                //    $location.path('/cars');
+                //});
+                $scope.carbrand.$save();
+            }else{
+                Car.update({id:$routeParams.carbrandId}, $scope.carbrand).$promise.then(function () {
+                    $location.path('/cars');
+                });
+            }
+        };
 
-            $scope.Edit = function(){};
-
-            $scope.carbrand = Car.get({ id: $routeParams.carbrandId });
+        $scope.carbrand = Car.get({id: $routeParams.carbrandId});
 
 
-            $scope.Delete = (function(carbrandId) {
-                Car.delete({ id:carbrandId });
-            });
-        }]);
+        $scope.Delete = (function (carbrandId) {
+            if (confirm('delete?')) {
+                Car.delete({id: carbrandId});
+            }
+        });
+    }]);

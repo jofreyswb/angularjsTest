@@ -6,7 +6,7 @@
 <ul>
     <li ng-repeat="carbrand in carbrends | filter:query">
         <span>|| ID:{{carbrand.id}} || </span><span>Brand: {{carbrand.brand }} ---</span>
-        <span><a href="#/cars/{{carbrand.id}}"  ng-click="Edit()">Edit</a></span>
+        <span><a href="#/cars/{{carbrand.id}}" >Edit</a></span>
         <span><a href="#/cars" ng-click="Delete(carbrand.id)" >Delete</a></span>
     </li>
 </ul>
