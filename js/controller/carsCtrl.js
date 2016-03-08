@@ -11,10 +11,10 @@ carsAppControllers.controller('carsCtrl', ['$scope', '$routeParams', 'Car',
         $scope.Save = function () {
             console.log('save');
             if ($routeParams.carbrandId == 'new') {
-                //Car.save($scope.carbrand).$promise.then(function () {
-                //    $location.path('/cars');
-                //});
-                $scope.carbrand.$save();
+                Car.save($scope.carbrand).$promise.then(function () {
+                    $location.path('/cars');
+                });
+                //$scope.carbrand.$save();
             }else{
                 Car.update({id:$routeParams.carbrandId}, $scope.carbrand).$promise.then(function () {
                     $location.path('/cars');
