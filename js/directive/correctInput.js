@@ -29,11 +29,15 @@ carsApp.directive('editInput', function () {
         //},
         // здесь находится основная функциональность директивы
         link: function postLink($scope, element, attrs,Car) {
+            $scope.isEdit = false;
+
             $scope.EditAtr =function (){
                 console.log($scope.id);
                 console.log($scope.brand);
+                $scope.isEdit = !$scope.isEdit;
             }
             $scope.editBrand = function(){
+                $scope.isEdit = !$scope.isEdit;
                 Car.update({id:$scope.id}, $scope.brand).$promise.then(function () {
 
                 });

@@ -1,3 +1,5 @@
 <span>
-  <input type="text" ng-model="brand" ng-blur="editBrand()"><span style="cursor: pointer" ng-click="EditAtr()">EDIT</span>
+  <span ng-if="!isEdit">{{brand}}</span>
+  <input ng-if="isEdit" type="text" ng-model="brand" ng-blur="editBrand()">
+    <span style="cursor: pointer" ng-click="EditAtr()">EDIT</span>
 </span>
