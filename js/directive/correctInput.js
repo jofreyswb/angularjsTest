@@ -1,5 +1,5 @@
 carsApp.directive('editInput', function () {
-     return  {
+    return {
         // приоритет директивы (см. выше)
         priority: 0,
         // шаблон, заданный явно
@@ -14,8 +14,9 @@ carsApp.directive('editInput', function () {
         restrict: 'AE',
         // создавать/не создавать замыкание области видимости
         scope: {
-            brand:'=',
-            id:'='
+            carbrand: '=brand',
+            change: '&change',
+            type:'='
         },
         // контроллер для директивы
         //controller: function($scope, element, attrs,Car) {
@@ -28,19 +29,20 @@ carsApp.directive('editInput', function () {
         //    }
         //},
         // здесь находится основная функциональность директивы
-        link: function postLink($scope, element, attrs,Car) {
+        link: function postLink($scope, element, attrs, Car) {
+            $scope.type = $scope.type ? $scope.type :'text';
             $scope.isEdit = false;
-
-            $scope.EditAtr =function (){
-                console.log($scope.id);
-                console.log($scope.brand);
+            var txt ='asdasdasd';
+$scope.texttxt = txt;
+            $scope.EditAtr = function () {
+                console.log($scope.carbrand.id);
+                console.log($scope.carbrand.brand);
                 $scope.isEdit = !$scope.isEdit;
-            }
-            $scope.editBrand = function(){
+                console.log($scope.carbrand);
+            };
+            $scope.editBrand = function (brand) {
                 $scope.isEdit = !$scope.isEdit;
-                Car.update({id:$scope.id}, $scope.brand).$promise.then(function () {
-
-                });
+                $scope.change(brand);
             }
         }
     }

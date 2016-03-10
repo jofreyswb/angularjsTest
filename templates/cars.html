@@ -5,13 +5,18 @@
     <input ng-model="query">
 <ul>
     <li ng-repeat="carbrand in carbrends | filter:query">
-        <span>|| ID:{{carbrand.id}} || </span><span>Brand: {{carbrand.brand }} ---</span>
-        <span><a href="#/cars/{{carbrand.id}}" >Edit</a></span>
-
-        <span><a href="#/cars" ng-click="Delete(carbrand.id)" >Delete</a></span>
+        <span>|| ID:{{carbrand.id}} || </span>
+        <!--<span>Brand: {{carbrand.brand }} -&#45;&#45;</span>-->
+        <!--<span><a href="#/cars/{{carbrand.id}}" >Edit</a></span>-->
         <span>
-            <edit-input brand="carbrand.brand" id="carbrand.id"></edit-input>
+            <edit-input brand="carbrand"
+                        type="number"
+                        change="update(carbrand)">
+
+            </edit-input>
         </span>
+        <span><a href="#/cars" ng-click="Delete(carbrand.id)" >Delete</a></span>
+
     </li>
 </ul>
 
