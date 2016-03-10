@@ -14,9 +14,9 @@ carsApp.directive('editInput', function () {
         restrict: 'AE',
         // создавать/не создавать замыкание области видимости
         scope: {
-            carbrand: '=brand',
+            carbrand: '=branding',
             change: '&change',
-            type:'='
+            type: '='
         },
         // контроллер для директивы
         //controller: function($scope, element, attrs,Car) {
@@ -30,10 +30,10 @@ carsApp.directive('editInput', function () {
         //},
         // здесь находится основная функциональность директивы
         link: function postLink($scope, element, attrs, Car) {
-            $scope.type = $scope.type ? $scope.type :'text';
+            $scope.type = $scope.type ? $scope.type : 'text';
             $scope.isEdit = false;
-            var txt ='asdasdasd';
-$scope.texttxt = txt;
+            var txt = 'asdasdasd';
+            $scope.texttxt = txt;
             $scope.EditAtr = function () {
                 console.log($scope.carbrand.id);
                 console.log($scope.carbrand.brand);
